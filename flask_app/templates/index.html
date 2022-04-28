@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="shortcut icon" href="#">
+    <title>Add Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+
+<body>
+    <input type="submit" name="logout" id="" value="Logout">
+    <h1>BikeRoute Demo</h1>
+    <div class="container">
+
+        <div class="column_left">
+            <!--The div element for the map -->
+            <div id="map"></div>
+            <div class="flex_row">
+                <button id="toggle">Toggle Bike Layer</button>
+            </div>
+        </div>
+
+        <div class="column_right">
+            <div class="info_box">
+                <p><strong>Enter location/Direction</strong></p>
+                <label for="start">Start</label>
+                <input type="text" name="start" id="start"><br>
+                <label for="end">End</label>
+                <input type="text" name="end" id="end">
+                <button onclick="calcRoute();">GO!</button>
+            </div>
+            <div class="info_box">
+                <p><strong>Weather Conditions</strong></p>
+            </div>
+            <div class="info_box">
+                <p><strong>Route Stats</strong></p>
+                <p>Total Elevation Change:</p>
+                <p>Highest Elevation:</p>
+                <p>Total Uphill</p>
+                <p>Steepest Grade</p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- 
+    The `defer` attribute causes the callback to execute after the full HTML
+    document has been parsed. For non-blocking uses, avoiding race conditions,
+    and consistent behavior across browsers, consider loading using Promises
+    with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjYNsG-Q_EyFCRfHBdNh1uUWx44zQXLKI&callback=initMap"defer>
+    </script>
+
+</body>
+
+</html>
